@@ -1,0 +1,1 @@
+This is a simple game of rock, paper, scissors. Winner gets to pick where we eat dinner.
