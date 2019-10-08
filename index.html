@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rock, Paper, Scissors</title>
+</head>
+<body>
+
+    <script>
+        function computerPlay(){
+            let decider = randomNumber(3);
+            if (decider === 1){
+                return "Rock";
+            }else if (decider === 2){
+                return "Paper";
+            }else if (decider === 3){
+                return "Scissors";
+            }else{
+                return "Hey this computer isn't playing by the rules!"
+            }
+        }
+
+        function randomNumber(maxNumber){
+            let randNum = Math.floor(Math.random() * maxNumber) + 1;
+            return randNum;
+        }
+
+        function singleRound(playerSelection, computerSelection){
+            playerSelection = playerSelection.toLowerCase();
+            computerSelection = computerSelection.toLowerCase();
+            console.log(computerSelection + " " + playerSelection);
+            let computerName = "Computer";
+            let playerName = "Player";
+            let winner = "";
+            let message = "";
+            if (!(playerSelection === "paper" || playerSelection === "rock" || playerSelection === "scissors")){
+                message = "Player has not entered a valid selection. Please choose either Rock, Paper, or Scissors";
+                return message;
+            }else if (playerSelection === "rock" && computerSelection === "rock"){
+                message = "It's a draw. You both chose Rock!";
+                return message;
+            }else if (playerSelection === "paper" && computerSelection === "paper"){
+                message = "It's a draw. You both chose Paper!";
+                return message;
+            }else if (playerSelection === "scissors" && computerSelection === "scissors"){
+                message = "It's a draw. You both chose Scissors!";
+                return message;
+            }else if (playerSelection === "rock" && computerSelection === "paper"){
+                winner = computerName;
+                message = winner + " is the winner! Paper beats Rock.";
+                return message;
+            }else if (playerSelection === "rock" && computerSelection === "scissors"){
+                winner = playerName;
+                message = winner + " is the winner! Rock beats Scissors.";
+                return message;
+            }else if (playerSelection === "paper" && computerSelection === "rock"){
+                winner = playerName;
+                message = winner + " is the winner! Paper beats Rock.";
+                return message;
+            }else if (playerSelection === "paper" && computerSelection === "scissors"){
+                winner = computerName;
+                message = winner + " is the winner! Scissors beats Paper.";
+                return message;
+            }else if (playerSelection === "scissors" && computerSelection === "rock"){
+                winner = computerName;
+                message = winner + " is the winner! Rock beats Scissors.";
+                return message;
+            }else if (playerSelection === "scissors" && computerSelection === "paper"){
+                winner = playerName;
+                message = winner + " is the winner! Scissors beats Paper.";
+                return message;
+            }
+            
+        }
+    </script>
+
+</body>
+</html>
