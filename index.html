@@ -27,50 +27,84 @@
         function singleRound(playerSelection, computerSelection){
             playerSelection = playerSelection.toLowerCase();
             computerSelection = computerSelection.toLowerCase();
-            console.log(computerSelection + " " + playerSelection);
             let computerName = "Computer";
             let playerName = "Player";
             let winner = "";
             let message = "";
             if (!(playerSelection === "paper" || playerSelection === "rock" || playerSelection === "scissors")){
+                winner = "invalid";
                 message = "Player has not entered a valid selection. Please choose either Rock, Paper, or Scissors";
                 return message;
             }else if (playerSelection === "rock" && computerSelection === "rock"){
+                winner = "draw";
                 message = "It's a draw. You both chose Rock!";
-                return message;
+                return winner;
             }else if (playerSelection === "paper" && computerSelection === "paper"){
+                winner = "draw";
                 message = "It's a draw. You both chose Paper!";
-                return message;
+                return winner;
             }else if (playerSelection === "scissors" && computerSelection === "scissors"){
+                winner = "draw";
                 message = "It's a draw. You both chose Scissors!";
-                return message;
+                return winner;
             }else if (playerSelection === "rock" && computerSelection === "paper"){
                 winner = computerName;
                 message = winner + " is the winner! Paper beats Rock.";
-                return message;
+                return winner;
             }else if (playerSelection === "rock" && computerSelection === "scissors"){
                 winner = playerName;
                 message = winner + " is the winner! Rock beats Scissors.";
-                return message;
+                return winner;
             }else if (playerSelection === "paper" && computerSelection === "rock"){
                 winner = playerName;
                 message = winner + " is the winner! Paper beats Rock.";
-                return message;
+                return winner;
             }else if (playerSelection === "paper" && computerSelection === "scissors"){
                 winner = computerName;
                 message = winner + " is the winner! Scissors beats Paper.";
-                return message;
+                return winner;
             }else if (playerSelection === "scissors" && computerSelection === "rock"){
                 winner = computerName;
                 message = winner + " is the winner! Rock beats Scissors.";
-                return message;
+                return winner;
             }else if (playerSelection === "scissors" && computerSelection === "paper"){
                 winner = playerName;
                 message = winner + " is the winner! Scissors beats Paper.";
-                return message;
+                return winner;
             }
-            
         }
+
+        function game(){
+                let i;
+                let userInput;
+                let computerInput;
+                let userWins = 0;
+                let computerWins = 0;
+                let drawCount = 0;
+                for (i = 0; i < 5; i++){
+                    userInput = window.prompt("Well, what's it gonna be? Rock, Paper, or Scissors?", "");
+                    computerInput = computerPlay();
+                    let winner = singleRound(userInput, computerInput);
+                    if (winner === "Player"){
+                        userWins++;
+                    }else if (winner === "Computer"){
+                        computerWins++;
+                    }else if (winner === "draw"){
+                        drawCount++;
+                    }else {
+                        i--;
+                    }
+                    console.log(winner);
+                    console.log(userWins, computerWins, drawCount);
+                }
+                if (computerWins > userWins){
+                    return "Computer wins!";
+                }else if (computerWins < userWins){
+                    return "Player wins!";
+                }else if (userWins === computerWins){
+                    return "It was a draw!";
+                }
+            }
     </script>
 
 </body>
