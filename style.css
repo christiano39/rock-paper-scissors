@@ -1,0 +1,43 @@
+body {
+    display: block;
+    align-content: center;
+    justify-content: center;
+    background-color: palegreen;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    margin-left: 650px;
+}
+
+button {
+    align-self: center;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+button:hover {
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+}
+
+h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 600px;
+    margin-right: 730px;
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+    color: black;
+    background-color: pink;
+}
+
+#results-container {
+    margin-left: 600px;
+}
+
+h4 {
+    text-decoration: underline;
+}
